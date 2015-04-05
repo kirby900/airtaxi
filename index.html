@@ -1,0 +1,98 @@
+<!doctype html>
+<html ng-app="heli">
+<head>
+	<title>Angular Programming Contest</title>
+
+	<link rel="stylesheet" href="css/copters.css" type="text/css">
+
+	<script src="angular/angular.min.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+<!--	
+	<script src="js/lodash.min.js"></script>
+	<script src="js/angular-google-maps.min.js"></script>
+-->
+
+	<script src="js/RideRequest.js"></script>
+	<script src="js/Copter.js"></script>
+	<script src="js/geo_functions.js"></script>
+	<script src="js/Queue.js"></script>
+	<script src="js/Vector2D.js"></script>
+    <script src="js/maincontroller.js"></script>
+
+</head>
+<body>
+	<div id="container" ng-controller="MainController">
+
+		<div class="column">
+	    	<div id="map1" class="map-canvas">
+	    		Localized Map
+	    	</div>
+	    </div>
+
+		<div class="column">
+			<label>Wind conditions</label>
+			<select ng-model="selections.windVector"
+			        ng-options="wc.day + ' (' + wc.vx + ', ' + wc.vy + ')' for wc in windConditions">
+			</select>
+<!--
+			<label>Sample Rate</label>
+			<select ng-model="selections.sampleRate"
+			        ng-options="interval.label for interval in animationIntervals">
+			</select>
+-->
+			<label>Play Speed</label>
+			<select ng-model="selections.timeFactor"
+			        ng-options="factor.label for factor in timeFactors">
+			</select>
+
+			<section class="report">
+				<h3>Copters</h3>
+				<table class="table-basic">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Scheduled</th>
+							<th>Aboard</th>
+							<th>Max Speed</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="copter in copters">
+							<td>{{ copter.name }}</td>
+							<td>{{ copter.pickups.length }}</td>
+							<td>{{ copter.passengers.length }}</td>
+							<td>{{ copter.maxSpeed }}</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+
+			<section class="report">
+				<h3>Travelers</h3>
+				<table class="table-basic">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>City</th>
+							<th>Status</th>
+						</tr>
+						</thead>
+					<tbody>
+						<tr ng-repeat="pass in passengers">
+							<td>{{ pass.name }}</td>
+							<td>{{ pass.city }}</td>
+							<td>{{ pass.status }}</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+			
+			<p>Elapsed time: <span class="bold red">{{ elapsedTime }}</span></p>
+	    </div>	       
+
+    </div>
+
+</body>
+
+</html>
+

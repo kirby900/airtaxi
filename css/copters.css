@@ -1,0 +1,68 @@
+
+	body {
+		font-family: 'helvetica neue', helvetica, arial, sans-serif;
+		font-size: 10pt;
+	}
+
+	.column { 
+		float: left;
+		margin-right: 20px;
+	}
+
+
+	.map-canvas {
+		width: 700px;
+		height: 675px;
+	}
+
+	.ul-plain { list-style-type: none; padding-left: 0; border: 1px solid red; }
+	.ul-plain li { }
+
+	.table-basic { 
+		border-collapse: collapse; 
+	}
+	.table-basic th { 
+		text-align: left; 
+		font-weight: bold; 
+		color: #38c; 
+		padding-right: 0.5em;
+		padding-top: 0.2em;
+/*
+		padding: 0.4em 0.5em 0.4em 0; 
+*/
+	}
+	.table-basic td { 
+		text-align: left; 
+		font-weight: normal; 
+		padding-right: 0.5em;
+		padding-top: 0.3em;
+/*
+		padding: 0.2em 0.5em 0.2em 0; 
+		border-bottom: 1px solid #ccc; 
+*/
+	}
+
+	.table-basic tbody tr:hover { 
+		background-color: #ffb; 
+	}
+
+	.bold { font-weight: bold; }
+	.red { color: red; }
+	
+	.report {
+		margin-top: 0.75em;
+		border: 1px solid #8ac;
+		border-radius: 8px;
+		padding: 0.5em 1.0em;
+	}
+
+.report h3 { 
+		color: #ff8c00;
+		margin-top: 0;
+		margin-bottom: 0.3em;
+/*
+		margin-top: 0;
+		margin-bottom: 0.3em;
+*/
+	}
+
